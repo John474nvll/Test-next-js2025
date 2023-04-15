@@ -28,8 +28,6 @@ export const TaskProvider = ({ children }) => {
     },
   ];
 
-
-  
   return (
     <TaskContext.Provider
       value={{
