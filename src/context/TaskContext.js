@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const TaskContext = createContext();
 
@@ -10,7 +10,7 @@ export const useTasks = () => {
 };
 
 export const TaskProvider = ({ children }) => {
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       title: "my first task",
@@ -26,12 +26,23 @@ export const TaskProvider = ({ children }) => {
       title: "my third task",
       descripton: "some task third",
     },
-  ];
+  ]);
+  const createTask = (title, description) => {
+    setTasks([
+      ...tasks,
+      {
+        title,
+        description,
+        id: 10,
+      },
+    ]);
+  };
 
   return (
     <TaskContext.Provider
       value={{
         tasks,
+        createTask
       }}
     >
       {children}
