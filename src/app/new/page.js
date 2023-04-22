@@ -20,7 +20,11 @@ function Page({ params }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTask(task.title, task.description);
+    if (params.id) {
+      console.log("update");
+    } else {
+      createTask(task.title, task.description);
+    }
     router.push("/");
   };
 
