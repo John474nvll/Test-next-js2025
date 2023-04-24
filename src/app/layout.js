@@ -1,5 +1,6 @@
 import "./globals.css";
 import { TaskProvider } from "../context/TaskContext";
+import { Toaster } from "../Toaster";
 import { Navbar } from "@/components/Navbar";
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <TaskProvider>
           <Navbar />
           {children}
+          <Toaster />
         </TaskProvider>
       </body>
     </html>
